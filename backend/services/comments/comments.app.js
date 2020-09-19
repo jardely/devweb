@@ -1,8 +1,8 @@
 const db = require('../../mysql/connection')
-const Trades = require('../../mysql/trades.sql')
+const Comments = require('../../mysql/comments.sql')
 
 exports.getAll = function (req, res) {
-  db.query(Trades.getAll, (error, results1) => {
+  db.query(Comments.getAll, (error, results1) => {
     console.log(error);
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
     return res.status(200).send(results1);
@@ -10,28 +10,29 @@ exports.getAll = function (req, res) {
 }
 
 exports.getById = function (req, res) {
-  db.query(Trades.getById(req.params.id), (error, results1) => {
+  db.query(Comments.getById(req.params.id), (error, results1) => {
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
     return res.status(200).send(results1);
   });
 }
 
-exports.getByCategory = function (req, res) {
-  db.query(Trades.getByCategory(req.body.category), (error, results1) => {
+exports.getByTradeId = function (req, res) {
+  console.log(req.params.id)
+  db.query(Comments.getByTradeId(req.params.tradeId), (error, results1) => {
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
     return res.status(200).send(results1);
   });
 }
 
 exports.add = function (req, res) {
-  db.query(Trades.add(req.body.name, req.body.descricao, req.body.telefone, req.body.endereco, req.body.category), (error, results1) => {
+  db.query(Comments.add(req.body.tradeId, req.body.comment), (error, results1) => {
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
     return res.status(201).send(results1);
   });
 }
 
 exports.delete = function (req, res) {
-  db.query(Trades.delete(req.params.id), (error, results1) => {
+  db.query(Comments.delete(req.params.id), (error, results1) => {
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
     return res.status(200).send(results1);
   });
