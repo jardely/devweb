@@ -6,5 +6,9 @@ export const COLORS = {
   blue0: '#e1e8f7',
   blue1: '#356ef2',
   blue2: '#193678',
-  blue3: '#3030ff'
+  blue3: '#3030ff',
+  red1: '#eb2828',
+  red0: '#f58989',
+  red2: '#ff2626',
+
 }

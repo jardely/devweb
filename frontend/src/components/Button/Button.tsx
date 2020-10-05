@@ -17,13 +17,13 @@ const Button = ({ label, variation, disabled }: ButtonProps) => {
 
     } else if (variation === 'primary') {
       return {
-        backgroundColor: COLORS.blue1, borderColor: COLORS.blue1,
+        backgroundColor: COLORS.red2, borderColor: COLORS.red2,
         color: COLORS.branco,
       }
     } else {
       return {
-        backgroundColor: COLORS.blue0, borderColor: COLORS.blue0,
-        color: COLORS.blue3
+        backgroundColor: 'transparent', borderColor: 'transparet',
+        color: COLORS.red2
       }
     }
   }
@@ -32,7 +32,8 @@ const Button = ({ label, variation, disabled }: ButtonProps) => {
       ...colorStyle(),
       outline: 0,
       fontSize: '15px',
-      border: 'none'
+      border: 'none',
+      borderRadius: '5px'
     }}>{label}</button>
 
   )
