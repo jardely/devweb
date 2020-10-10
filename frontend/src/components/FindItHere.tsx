@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { CommerceType } from './Commerces/Commerce'
 import Commerces from './Commerces/Commerces'
-import InputSearch from './InputSearch/InputSearch'
 import NavBar from './Navbar'
 import { COLORS } from './utils/utils'
 
-const commerces = [{ name: 'Lanchonete 3', description: 'Salgados, doces, tudo.', address: 'Rua da Paixão, 15, próximo à Viação Progresso. Pedra Lavrada-PB.', phone: '(83) 997846565' }, { name: 'Lanchonete 3', description: 'Salgados, doces, tudo.', address: 'Rua da Paixão, 15, próximo à Viação Progresso. Pedra Lavrada-PB.', phone: '(83) 997846565' }, { name: 'Lanchonete 3', description: 'Salgados, doces, tudo.', address: 'Rua da Paixão, 15, próximo à Viação Progresso. Pedra Lavrada-PB.', phone: '(83) 997846565' }]
-
 const FindItHere = () => {
+
+  const [commmerces, setCommerces] = useState<CommerceType[] | undefined>()
+  useEffect(() => {
+    fetch(
+      'http://localhost:3000/commerces',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+      .then(res => res.json())
+      .then(response => {
+
+        setCommerces(response)
+      })
+  }, [])
+  console.log(commmerces)
+
   return (
     <>
 
@@ -18,7 +36,7 @@ const FindItHere = () => {
           <h1 className='flex justify-center'>Ache Aqui</h1>
           <div >
 
-            <Commerces commerces={commerces}></Commerces>
+            <Commerces commerces={commmerces}></Commerces>
           </div>
         </div>
       </div >

@@ -3,9 +3,8 @@ const Commerce = require('../../mysql/commerces.sql')
 
 exports.getAll = function (req, res) {
   db.query(Commerce.getAll, (error, results1) => {
-    console.log(error);
     if (error) return res.status(500).send({ "code": 1103, "msg": error });
-    return res.status(200).send(results1);
+    return res.status(200).json(results1);
   });
 }
 

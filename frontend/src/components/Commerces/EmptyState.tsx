@@ -13,7 +13,6 @@ const EmptyState = () => {
           <p>{`O termo pelo qual você buscou não consta na nossa base de dados. Por favor, tente por outro termo.`}</p>
         </div>
       </div>
-
     </div>)
 
 }

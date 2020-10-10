@@ -1,21 +1,20 @@
 import React from 'react'
-import Commerce, { Commerce as CommerceType } from './Commerce'
+import Commerce, { CommerceType } from './Commerce'
 import EmptyState from './EmptyState'
 
-
 interface Props {
-  commerces: CommerceType[]
+  commerces: CommerceType[] | undefined
 }
 
 const Commerces = ({ commerces }: Props) => {
-  const haveCommerces = commerces.length > 0
+  const haveCommerces = commerces && commerces.length > 0
 
   return (
 
     haveCommerces ? (
       <div >
 
-        { commerces.map(commerce => <Commerce commerce={commerce} />)}
+        { commerces?.map(commerce => <Commerce commerce={commerce} />)}
       </div >
     ) : (
         <EmptyState />
