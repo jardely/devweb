@@ -46,7 +46,6 @@ const FormAdd = () => {
       })
   }
 
-  console.log(name)
   return (
     < div className='pa5 flex justify-center' >
       <div
@@ -66,10 +65,9 @@ const FormAdd = () => {
         <SelectOption value={category} setValue={setCategory} label='Categoria:' />
 
         <div className='pv4 pl7'>
-
           <Button onClick={onSave} label='Cadastrar' variation='primary' disabled={false} />
-
         </div>
+
       </div>
     </div >
   )

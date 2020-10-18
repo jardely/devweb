@@ -16,7 +16,7 @@ interface Props {
 
 const Commerce = ({ commerce }: Props) => {
   return (
-    <div className='pv2'>
+    <div className='pv2' data-testid='commerce'>
       <div
         style={{ boxShadow: '0 3px 9px 0 rgba(61, 62, 64, 0.2)', borderRadius: '5px', backgroundColor: COLORS.branco }} className='grow dsib flex w-100 b2 br2 bg-base c-on-base pa4 ph5'>
         <div className='w-80'>

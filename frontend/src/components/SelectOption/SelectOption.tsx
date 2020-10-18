@@ -15,12 +15,12 @@ interface Props {
 
 const SelectOption = ({ value, setValue, label }: Props) => {
 
-  const handleInputChange = (newValue: string) => {
+  // const handleInputChange = (newValue: string) => {
 
-    setValue(newValue);
-    return newValue;
-  }
-  console.log(value)
+  //   setValue(newValue);
+  //   return newValue;
+  // }
+  // console.log(value)
   return (
     <>
       {label && <span className='db mb2 w-100' style={{ color: COLORS.grey4 }}>{label}</span>}
