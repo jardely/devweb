@@ -10,12 +10,13 @@ const commerce = {
   telefone: '987654823'
 }
 
-describe('Input search test', () => {
+describe('Commerce test', () => {
 
-  it('renders learn react link', async () => {
+  it('should render commerce', async () => {
     const { getByTestId, getByText } = render(<Commerce commerce={commerce} />);
 
     expect(getByText('Lanchonete fofinha')).not.toBeNull();
     expect(getByTestId('commerce')).not.toBeNull();
   });
+
 })

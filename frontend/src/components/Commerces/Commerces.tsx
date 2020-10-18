@@ -12,7 +12,7 @@ const Commerces = ({ commerces }: Props) => {
   return (
 
     haveCommerces ? (
-      <div >
+      <div data-testid='commerces'>
         { commerces?.map(commerce => <Commerce commerce={commerce} />)}
       </div >
     ) : (
