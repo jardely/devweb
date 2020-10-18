@@ -5,11 +5,10 @@ interface ButtonProps {
   label: string
   variation: string
   disabled: boolean
+  onClick?: () => void
 }
 
-
-
-const Button = ({ label, variation, disabled }: ButtonProps) => {
+const Button = ({ label, variation, disabled, onClick }: ButtonProps) => {
 
   const colorStyle = () => {
     if (disabled) {
@@ -28,7 +27,7 @@ const Button = ({ label, variation, disabled }: ButtonProps) => {
     }
   }
   return (
-    <button className='ttu pa2' name='submit' style={{
+    <button onClick={onClick} className='ttu pa2' name='submit' style={{
       ...colorStyle(),
       outline: 0,
       fontSize: '15px',

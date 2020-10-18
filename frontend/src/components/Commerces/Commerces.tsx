@@ -13,7 +13,6 @@ const Commerces = ({ commerces }: Props) => {
 
     haveCommerces ? (
       <div >
-
         { commerces?.map(commerce => <Commerce commerce={commerce} />)}
       </div >
     ) : (

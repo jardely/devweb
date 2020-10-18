@@ -10,7 +10,7 @@ const InputSearch = ({ placeholder }: InputSearchProps) => {
   const [valueInput, setValueInput] = useState('')
 
   return (
-    <div className=''>
+    <div data-testid='input-search' className=''>
 
       <input style={{
         ...inputStyle()

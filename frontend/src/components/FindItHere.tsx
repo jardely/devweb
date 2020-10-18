@@ -23,12 +23,10 @@ const FindItHere = () => {
         setCommerces(response)
       })
   }, [])
-  console.log(commmerces)
 
   return (
     <>
-
-      <div style={{ backgroundColor: '#f0efed', height: '100%', fontFamily: 'Arial, Helvetica, sans-serif', }}>
+      <div data-testid='find-it-here' style={{ backgroundColor: '#f0efed', height: '100%', fontFamily: 'Arial, Helvetica, sans-serif', }}>
         <div style={{ backgroundColor: COLORS.red2 }}>
           <NavBar />
         </div>

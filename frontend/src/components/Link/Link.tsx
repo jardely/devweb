@@ -5,12 +5,13 @@ interface Props {
   target?: string
   label?: string
   children?: string
+  onClick?: () => {}
 }
 
-const Link = ({ href, target, label }: Props) => {
+const Link = ({ href, target, label, onClick }: Props) => {
 
   return (
-    <a style={{ outline: 0, }} className="pr5 link white hover-black" href={href} target={target}>{label}</a>
+    <a onClick={onClick} style={{ outline: 0, }} className="pr5 link white hover-black" href={href} target={target}>{label}</a>
 
   )
 }

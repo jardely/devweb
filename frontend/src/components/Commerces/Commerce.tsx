@@ -4,7 +4,6 @@ import { COLORS } from '../utils/utils'
 
 export interface CommerceType {
   categoria: string
-  comercioId: number
   descricao: string
   endereco: string
   nome: string
