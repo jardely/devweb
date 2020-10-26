@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { CommerceType } from './Commerces/Commerce'
+import React from 'react'
 import Commerces from './Commerces/Commerces'
 import NavBar from './Navbar'
 import { COLORS } from './utils/utils'
+import useCommerces from '../context/Commerce'
 
 const FindItHere = () => {
 
-  const [commmerces, setCommerces] = useState<CommerceType[] | undefined>()
-  useEffect(() => {
-    fetch(
-      'http://localhost:3000/commerces',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    )
-      .then(res => res.json())
-      .then(response => {
+  const { commerces } = useCommerces
 
-        setCommerces(response)
-      })
-  }, [])
 
   return (
     <>
@@ -34,7 +19,7 @@ const FindItHere = () => {
           <h1 className='flex justify-center'>Ache Aqui</h1>
           <div >
 
-            <Commerces commerces={commmerces}></Commerces>
+            <Commerces commerces={commerces}></Commerces>
           </div>
         </div>
       </div >
