@@ -1,11 +1,12 @@
 var express = require('express');
 const commerceRouter = express.Router();
-const commerceApp = require('./commerces.app');
+const commerceApp = require('../controllerss/commerces');
 
 commerceRouter.get('/', commerceApp.getAll);
-commerceRouter.get('/category', commerceApp.getByCategory);
+commerceRouter.get('/category/:category', commerceApp.getByCategory);
 commerceRouter.get('/:id', commerceApp.getById);
 commerceRouter.post('/', commerceApp.add);
 commerceRouter.delete('/:id', commerceApp.delete);
+commerceRouter.put('/', commerceApp.update)
 
 module.exports = commerceRouter;
