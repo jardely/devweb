@@ -1,27 +1,29 @@
-import React, { useState } from 'react'
+import { Button } from '@material-ui/core'
+import SearchIcon from '@material-ui/icons/Search';
+import React from 'react'
 import { buttonInputStyle, inputStyle } from './style'
 
 interface InputSearchProps {
   placeholder: string
+  value: string
+  setValue: React.Dispatch<React.SetStateAction<string>>
+  onSearch: () => void
 }
 
-const InputSearch = ({ placeholder }: InputSearchProps) => {
-
-  const [valueInput, setValueInput] = useState('')
+const InputSearch = ({ placeholder, value, setValue }: InputSearchProps) => {
 
   return (
-    <div data-testid='input-search' className=''>
-
+    <div data-testid='input-search'>
       <input style={{
         ...inputStyle()
       }}
         id='txtBusca'
         type='text'
         placeholder={placeholder}
-        value={valueInput}
-        onChange={e => setValueInput(e.target.value)}
+        value={value}
+        onChange={e => setValue(e.target.value)}
       />
-      <button id='inputButton' className='pa1' name='submit' style={{ ...buttonInputStyle() }} > Buscar </button>
+      <Button variant='contained' style={{ ...buttonInputStyle() }} disabled={true}><SearchIcon /></Button>
     </div >
   )
 }

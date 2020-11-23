@@ -1,25 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
-import EmptyState from './components/Commerces/EmptyState';
-import FindItHere from './components/FindItHere';
-import FormAdd from './components/FormAddCommerce/FormAdd';
+import Home from './components/Home'
+import CommercesProvider from './context/Commerce';
 
 function App() {
   return (
-    // <>
-
-    // <FormAdd />
-    // </>
-    <BrowserRouter>
-
-      <Switch>
-        <Route exact path='/' component={FindItHere} />
-        <Route exact path='/cadastro' component={FormAdd} />
-      </Switch>
-
-
-    </BrowserRouter>
+    <CommercesProvider>
+      <Home />
+    </CommercesProvider>
   )
 }
 

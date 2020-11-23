@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Button from '../Button/Button'
+import Button from '@material-ui/core/Button'
 import Input from '../Input/Input'
 import SelectOption from '../SelectOption/SelectOption'
 import { COLORS } from '../utils/utils'
-import Link from '../Link/Link'
+import api from '../../service/api'
 
 const FormAdd = () => {
   const Field = () => {
@@ -19,29 +19,17 @@ const FormAdd = () => {
   const [description, setDescription] = useState('')
   const errorName = name === ''
 
-  const [response, setResponse] = useState()
-
   const onSave = () => {
-    fetch(
-      'http://localhost:3000/commerces',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          endereco: address,
-          telefone: phone,
-          category: category,
-          descricao: description
-        })
-      }
-    )
-      .then(res => res.json())
-      .then(response => {
-        console.log(response)
-        setResponse(response)
+    const commerce = JSON.stringify({
+      name: name,
+      address: address,
+      phone: phone,
+      category: category,
+      description: description
+    })
+    api.add(commerce)
+      .then((data) => {
+        console.log(data.data)
       })
   }
 
@@ -62,9 +50,8 @@ const FormAdd = () => {
         <Input value={phone} handleChange={e => setPhone(e.target.value)} label='Telefone:' helpText='(83) 987654748' />
         <Field />
         <SelectOption value={category} setValue={setCategory} label='Categoria:' />
-
-        <div className='pv4 pl7'>
-          <Button onClick={onSave} label='Cadastrar' variation='primary' disabled={false} />
+        <div className='pv4 flex justify-end'>
+          <Button onClick={onSave} variant='contained' color='secondary' href='/'> SALVAR </Button>
         </div>
 
       </div>

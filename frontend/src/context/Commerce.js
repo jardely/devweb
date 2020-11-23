@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import api from '../service/api';
 
-const CommercesContext = createContext(null);
+const CommercesContext = createContext();
 
 
 export default function CommercesProvider({ children }) {
@@ -17,20 +18,9 @@ export function useCommerces() {
   const { commerces, setCommerces } = context
 
   useEffect(() => {
-    fetch(
-      'http://localhost:3000/commerces',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    )
-      .then(res => res.json())
-      .then(response => {
-
-        setCommerces(response)
-      })
+    api.getAll()
+      .then((data) => setCommerces(data.data))
+      .catch((error) => console.log(error))
   }, [])
 
   return { commerces, setCommerces }

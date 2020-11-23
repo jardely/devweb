@@ -4,7 +4,7 @@ interface Props {
   href: string
   target?: string
   label?: string
-  children?: string
+  children?: React.ReactNode
   onClick?: () => {}
 }
 
