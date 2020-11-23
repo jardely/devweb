@@ -20,3 +20,19 @@ Ao responder e enviar o formulário, será retornado mensangem de sucesso/fraca�
 
 ### Tela 3:
 A tela de Avaliação terá uma lista de avaliações de um empreendimento específico e um campo para adicionar novos comentários.
+
+## Informações para devs
+
+### Backend 
+#### Instale os pacotes NodeJS usando:
+  `npm install` ou `yarn install`
+
+#### Inicie o servidor:
+
+  `npm start` ou `yarn start`
+
+### Frontend
+
+#### Inicie o servidor:
+
+  `npm start` ou `yarn start`

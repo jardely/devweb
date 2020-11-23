@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Link from './Link/Link'
+import React from 'react'
+import Link from '../Link/Link'
 
 const NavBar = () => {
 

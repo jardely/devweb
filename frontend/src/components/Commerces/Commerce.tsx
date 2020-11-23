@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import { COLORS } from '../utils/utils'
-import EmptyState from './EmptyState'
+import EmptyState from '../EmptyState/EmptyState'
+import { CommerceStyle } from './style'
 
 export interface CommerceType {
   category: string
@@ -20,7 +20,7 @@ const Commerce = ({ commerce }: Props) => {
   return (
     <div className='pv2' data-testid='commerce'>
       {!commerce ? <EmptyState /> : <div
-        style={{ boxShadow: '0 3px 9px 0 rgba(61, 62, 64, 0.2)', borderRadius: '5px', backgroundColor: COLORS.branco }} className='grow dsib flex w-100 b2 br2 bg-base c-on-base pa4 ph5'>
+        style={CommerceStyle()} className='grow dsib flex w-100 b2 br2 bg-base c-on-base pa4 ph5'>
         <div className='w-80'>
           <h2 >{commerce.name}</h2>
           <div className='pv2'><span className='b'>Descrição: </span>{commerce.description}</div>

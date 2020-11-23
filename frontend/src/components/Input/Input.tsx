@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from 'react'
-import { COLORS } from '../utils/utils'
+import React from 'react'
+import { InputErrorStyle, InputHelpStyle, InputLabelStyle, InputStyle } from './style'
 
 interface Props {
   disabled?: boolean
@@ -37,17 +37,13 @@ const Input = ({ disabled,
   return (
     <div>
       <label data-testid={testId}>
-        {label && <span className='db mb2 w-100' style={{ color: COLORS.grey4 }}>{label}</span>}
-        <input className='pa2 pr6' style={{ borderRadius: '5px', borderWidth: '1px' }} value={value} disabled={disabled} type={type} maxLength={maxLenght} minLength={minLenght} placeholder={placeholder} readOnly={readonly} onChange={handleChange} onKeyDown={handleKeyDown}
+        {label && <span className='db mb2 w-100' style={InputLabelStyle()}>{label}</span>}
+        <input className='pa2 pr6' style={InputStyle()} value={value} disabled={disabled} type={type} maxLength={maxLenght} minLength={minLenght} placeholder={placeholder} readOnly={readonly} onChange={handleChange} onKeyDown={handleKeyDown}
         />
 
-        {error && errorMessage && <div className='mt1 lh-title' style={{
-          fontSize: '12px', color: COLORS.red2
-        }}>{errorMessage}</div>}
+        {error && errorMessage && <div className='mt1 lh-title' style={InputErrorStyle()}>{errorMessage}</div>}
 
-        {!error && helpText && <div className='mt1 lh-title' style={{
-          fontSize: '12px', color: COLORS.grey3
-        }}>{helpText}</div>}
+        {!error && helpText && <div className='mt1 lh-title' style={InputHelpStyle()}>{helpText}</div>}
       </label>
     </div>
   )

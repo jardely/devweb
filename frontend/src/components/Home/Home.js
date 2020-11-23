@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import NavBar from './Navbar'
-import { COLORS } from './utils/utils'
-import FormAdd from './FormAddCommerce/FormAdd'
+import NavBar from '../NavBar/Navbar'
+import FormAdd from '../FormAddCommerce/FormAdd'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import InputSearch from './InputSearch/InputSearch'
-import { useCommerces } from '../context/Commerce'
-import Commerce from './Commerces/Commerce'
-import EmptyState from './Commerces/EmptyState';
+import InputSearch from '../InputSearch/InputSearch'
+import { useCommerces } from '../../context/Commerce'
+import Commerce from '../Commerces/Commerce'
+import EmptyState from '../EmptyState/EmptyState';
+import { HomeStyle, NavbarBackground } from './style';
 
 const Content = () => {
   const { commerces } = useCommerces()
@@ -32,8 +32,8 @@ const Content = () => {
 const Home = () => {
   return (
     <>
-      <div data-testid='find-it-here' style={{ height: '100%', fontFamily: 'Arial, Helvetica, sans-serif' }}>
-        <div style={{ backgroundColor: COLORS.red2 }}>
+      <div data-testid='find-it-here' style={HomeStyle()}>
+        <div style={NavbarBackground()}>
           <NavBar />
         </div>
       </div >

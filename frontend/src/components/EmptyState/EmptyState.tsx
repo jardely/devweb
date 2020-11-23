@@ -1,12 +1,12 @@
 import React from 'react'
-import { COLORS } from '../utils/utils'
+import { EmptyStateStyle } from './style'
 
 const EmptyState = () => {
 
   return (
     <div className='pv2' data-testid='empty-state'>
       <div
-        style={{ boxShadow: '0 3px 9px 0 rgba(61, 62, 64, 0.2)', borderRadius: '5px', backgroundColor: COLORS.branco }} className='grow dib flex b2 br2 bg-base c-on-base pa4 ph5'>
+        style={EmptyStateStyle()} className='grow dib flex b2 br2 bg-base c-on-base pa4 ph5'>
         <div className='center'>
           <h3 > Comércio não encontrado! </h3>
 
