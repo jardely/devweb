@@ -34,7 +34,7 @@ const FormAdd = () => {
   }
 
   return (
-    < div className='pa5 flex justify-center' >
+    < div className='pa3 flex justify-center' >
       <div
         style={{ boxShadow: '0 3px 9px 0 rgba(61, 62, 64, 0.2)', borderRadius: '5px', backgroundColor: COLORS.branco }} className=' dsib  b2 br2 bg-base c-on-base pa4 ph5'>
         <h1 style={{ color: COLORS.red2 }}>Cadastrar comércio</h1>

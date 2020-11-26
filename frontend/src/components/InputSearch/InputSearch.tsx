@@ -7,7 +7,7 @@ interface InputSearchProps {
   placeholder: string
   value: string
   setValue: React.Dispatch<React.SetStateAction<string>>
-  onSearch: () => void
+
 }
 
 const InputSearch = ({ placeholder, value, setValue }: InputSearchProps) => {

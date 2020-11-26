@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@material-ui/core/Button'
 import EmptyState from '../EmptyState/EmptyState'
 import { CommerceStyle } from './style'
+import { Dialog } from '@material-ui/core'
+import Comment from '../Comment/Comment'
+import Input from '../Input/Input'
 
 export interface CommerceType {
-  category: string
-  description: string
-  address: string
+  id: number
   name: string
+  description: string
   phone: string
+  address: string
+  category: string
+  comments: string[]
 }
 
 interface Props {
@@ -16,6 +21,15 @@ interface Props {
 }
 
 const Commerce = ({ commerce }: Props) => {
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleOpenModal = () => {
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
 
   return (
     <div className='pv2' data-testid='commerce'>
@@ -28,8 +42,11 @@ const Commerce = ({ commerce }: Props) => {
           <div className='pv2'><span className='b'>Contato: </span>{commerce.phone}</div>
         </div>
         <div className='w-30 h3 pa2 flex justify-end items-center pt5'>
-          <Button variant='contained' color='secondary' disabled={false}> COMENTÁRIOS </Button>
+          <Button onClick={handleOpenModal} variant='contained' color='secondary' disabled={false}> COMENTÁRIOS </Button>
         </div>
+        <Dialog open={openModal} onClose={handleCloseModal}>
+          <Comment commerce={commerce} onClose={setOpenModal} />
+        </Dialog>
       </div>}
 
     </div>

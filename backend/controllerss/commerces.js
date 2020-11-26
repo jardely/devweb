@@ -7,6 +7,7 @@ var commerces = [
     phone: '(83) 987654532',
     address: 'Rua jhhj, ',
     category: 'Lanchonete',
+    comments: ["Excelente atendimento", "O pastel é um pouco salgado"]
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ var commerces = [
     phone: '(83) 987654532',
     address: 'Rua jhhj, ',
     category: 'Doceria',
+    comments: ["Excelente atendimento", "O preço é um pouco salgado"]
   }
 ]
 
@@ -66,11 +68,22 @@ module.exports = {
     var commercesResponse = []
     commerces.forEach(commerce => {
       if (commerce.category === req.params.category) {
-        console.log(commerce.category)
         commercesResponse.push(commerce)
       }
     })
     res.status(200).json(commercesResponse)
+  },
+
+  getComments: (req, res) => {
+    var comments = commerces[req.params.commerceId - 1].comments
+
+    res.status(200).json(comments)
+  },
+
+  addComments: (req, res) => {
+    var comments = commerces[req.params.commerceId - 1].comments
+    comments.push(req.body.comment)
+    res.status(201).json(comments)
   }
 
 }

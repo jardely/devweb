@@ -6,9 +6,10 @@ const NavBar = () => {
 
   return (
     <nav className="flex w-100">
-      <div className='w-40 pa3 pl5 '>
+      <div className='pa3 pl5 '>
         <Link href='/' label='Início'></Link>
         <Link href='/cadastro' label='Cadastrar'></Link>
+        <Link href='/sobre-nos' label='Sobre nós'></Link>
       </div>
 
     </nav>

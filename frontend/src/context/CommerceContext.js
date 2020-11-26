@@ -3,7 +3,6 @@ import api from '../service/api';
 
 const CommercesContext = createContext();
 
-
 export default function CommercesProvider({ children }) {
   const [commerces, setCommerces] = useState([]);
   return (
