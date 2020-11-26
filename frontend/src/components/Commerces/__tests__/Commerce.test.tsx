@@ -3,11 +3,13 @@ import { render } from '@testing-library/react';
 import Commerce from '../Commerce'
 
 const commerce = {
-  categoria: 'Lanchonete',
-  descricao: 'Muito bom',
-  endereco: 'Rua dos bobos, numero 0',
-  nome: 'Lanchonete fofinha',
-  telefone: '987654823'
+  id: 1,
+  category: 'Lanchonete',
+  description: 'Muito bom',
+  address: 'Rua dos bobos, numero 0',
+  name: 'Lanchonete fofinha',
+  phone: '987654823',
+  comments: ['top', 'perfeita']
 }
 
 describe('Commerce test', () => {
